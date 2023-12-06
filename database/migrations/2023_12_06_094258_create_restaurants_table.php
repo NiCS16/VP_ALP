@@ -11,20 +11,24 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
-            $table->string('password');
-            $table->string('phone');
+            $table->string('name');
+            $table->float('rating');
+            $table->string('address');
             $table->string('email');
+            $table->string('phone');
+            $table->time('open_time');
+            $table->time('close_time');
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('restaurants');
     }
 };
